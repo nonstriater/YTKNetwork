@@ -21,6 +21,8 @@
     [request setValue:@"image/jpeg" forHTTPHeaderField:@"Content-Type"];
     //[request setValue:@"chunked" forHTTPHeaderField:@"Transfer-Encoding"];
     
+    
+    
     if (serializationError) {
         if (failure) {
 #pragma clang diagnostic push

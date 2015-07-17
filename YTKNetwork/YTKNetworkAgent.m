@@ -92,9 +92,12 @@
     } else if (request.requestSerializerType == YTKRequestSerializerTypeJSON) {
         _manager.requestSerializer = [AFJSONRequestSerializer serializer];
     }
-    
+  
     _manager.requestSerializer.timeoutInterval = [request requestTimeoutInterval];
-
+    
+    // add support for responder MIME:text/html
+    _manager.responseSerializer.acceptableContentTypes = [_manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    
     // if api need server username and password
     NSArray *authorizationHeaderFieldArray = [request requestAuthorizationHeaderFieldArray];
     if (authorizationHeaderFieldArray != nil) {
